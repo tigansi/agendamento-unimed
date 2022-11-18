@@ -77,9 +77,12 @@ import {
   IonImg,
   IonIcon,
   toastController,
+  loadingController,
 } from "@ionic/vue";
 
 import { alert, thumbsUp, mail, fingerPrint } from "ionicons/icons";
+
+import Provider from "@/services/provider";
 
 export default defineComponent({
   name: "FormLogin",
@@ -100,8 +103,8 @@ export default defineComponent({
   },
   data() {
     return {
-      email: "",
-      senha: "",
+      email: "tigansi@unimedpelotas.com.br",
+      senha: "teste",
     };
   },
   methods: {
@@ -111,7 +114,33 @@ export default defineComponent({
       } else if (this.senha == "") {
         this.toastAlert("O campo senha está vazio", "warning");
       } else {
-        //
+        const loading = await loadingController.create({
+          message: "Verificando...",
+          spinner: "bubbles",
+        });
+
+        loading.present();
+
+        const dados = {
+          email: this.email,
+          senha: this.senha,
+        };
+
+        Provider.Provider("post", "/usuarios/verificaUsuario/", dados, "")
+          ?.then((res: any) => {
+            if (res.data.sucesso) {
+              loading.dismiss();
+              this.toastAlert("Bem vindo", "success");
+              this.$router.push("/painelAdm");
+            } else {
+              loading.dismiss();
+              this.toastAlert(res.data.message, "warning");
+            }
+          })
+          .catch((err) => {
+            loading.dismiss();
+            this.toastAlert(err, "warning");
+          });
       }
     },
 
@@ -152,7 +181,7 @@ export default defineComponent({
 
 <style scoped>
 #input {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 #login {

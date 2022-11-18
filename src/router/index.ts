@@ -17,6 +17,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "CadastroPage",
     component: () => import("@/views/AcessoSistema/Cadastro/CadastroPage.vue"),
   },
+  {
+    path: "/painelAdm",
+    name: "PainelAdmPage",
+    component: () => import("@/views/PainelAdm/PainelAdmPage.vue"),
+  },
 ];
 
 const router = createRouter({

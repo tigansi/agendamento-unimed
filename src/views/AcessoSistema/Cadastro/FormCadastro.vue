@@ -103,6 +103,6 @@ export default defineComponent({
   font-family: "Poppins", sans-serif;
 }
 #input {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 </style>
