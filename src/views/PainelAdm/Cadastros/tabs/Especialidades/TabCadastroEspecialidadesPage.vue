@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Administrativo</ion-title>
+        <ion-title>Header</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content> </ion-content>
@@ -13,19 +13,19 @@
 import { defineComponent } from "vue";
 import {
   IonPage,
+  IonContent,
   IonHeader,
   IonToolbar,
   IonTitle,
-  IonContent,
 } from "@ionic/vue";
 
 export default defineComponent({
   components: {
     IonPage,
+    IonContent,
     IonHeader,
     IonToolbar,
     IonTitle,
-    IonContent,
   },
   setup() {
     //

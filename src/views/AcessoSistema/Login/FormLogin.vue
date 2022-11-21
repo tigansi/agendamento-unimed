@@ -131,7 +131,9 @@ export default defineComponent({
             if (res.data.sucesso) {
               loading.dismiss();
               this.toastAlert("Bem vindo", "success");
-              this.$router.push("/painelAdm");
+              this.$router.push(
+                "/homePainelAdm/homeTabCadastroAdm/tabCadastroEspecialidadesPage"
+              );
             } else {
               loading.dismiss();
               this.toastAlert(res.data.message, "warning");

@@ -11,5 +11,6 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_2.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)({ origin: "*" }));
+/** */
 app.use(router_1.default);
 exports.default = app;

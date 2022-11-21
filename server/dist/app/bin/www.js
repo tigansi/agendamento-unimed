@@ -17,7 +17,7 @@ function start() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const port = 3000;
-            const host = "192.168.1.102";
+            const host = "192.168.8.52";
             app_1.default.listen(port, host, () => {
                 console.log("Server rodando");
             });

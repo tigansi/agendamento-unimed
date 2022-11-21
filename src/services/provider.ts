@@ -2,6 +2,7 @@ import config from "./config";
 
 const provider = {
   async Provider(tipo: string, url: string, data: any, token: string) {
+    console.log(token);
     try {
       switch (tipo) {
         case "post":
